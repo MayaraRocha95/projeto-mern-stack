@@ -22,6 +22,7 @@ const create = async (req, res) => {
         id: user._id,
         name,
         username,
+        
         email,
         avatar,
         background,

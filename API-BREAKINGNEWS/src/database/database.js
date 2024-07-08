@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+mongoose.set('strictQuery', true);
 
 const connectDataBase = () => {
   console.log("wait connecting to the database");

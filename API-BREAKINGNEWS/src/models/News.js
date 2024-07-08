@@ -3,15 +3,15 @@ import mongoose from "mongoose";
 const NewsShema = new mongoose.Schema({
   title: {
     type: String,
-    require: true,
+    required: true,
   },
   text: {
     type: String,
-    require: true,
+    required: true,
   },
   banner: {
     type: String,
-    require: true,
+    required: true,
   },
   createdAt: {
     type: Date,
@@ -20,7 +20,7 @@ const NewsShema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    require: true,
+    required: true,
   },
   likes: {
     type: Array,
@@ -28,7 +28,7 @@ const NewsShema = new mongoose.Schema({
   },
   comments: {
     type: Array,
-    require: true,
+    required: true,
   },
 });
 

@@ -187,3 +187,27 @@ export const byUser = async (req, res) => {
     return res.status(500).send({ message: error.message });
   }
 }
+
+export const update = async (req, res) => {
+  try{
+    const { title, text, banner } = req.body;
+    const { id } = req.params;
+
+    if (!title || !text || !banner) {
+      return res.status(400).send({
+        message: "Submit all fields for registration",
+      });
+    }
+
+    const news = await findByIdService(id);
+    if(news.user._id != req.userId){
+      return res.status(401).send({ message: "You are not authorized to update this news" });
+    }
+
+    await updateService(id, title, text, banner);
+
+    return res.send("News updated successfully");
+  }catch (error) {
+    return res.status(500).send({ message: error.message });
+  }
+};
